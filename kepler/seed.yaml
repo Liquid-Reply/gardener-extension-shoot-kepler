@@ -75,7 +75,7 @@ data:
         "list": [
           {
             "builtIn": 1,
-            "datasource": "-- Grafana --",
+            "datasource": "-- Plutono --",
             "enable": true,
             "hide": true,
             "iconColor": "rgba(0, 211, 255, 1)",
@@ -113,10 +113,7 @@ data:
           "type": "row"
         },
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
+          "datasource": "prometheus",
           "description": "Using CO2 emissions  by power generation type as reported by US Energy Information Administration https://www.eia.gov/tools/faqs/faq.php?id=74&t=11",
           "fieldConfig": {
             "defaults": {
@@ -165,10 +162,7 @@ data:
           "pluginVersion": "9.1.0",
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${datasource}"
-              },
+              "datasource": "prometheus",
               "editorMode": "code",
               "expr": "( sum(\n      increase(\n         (kepler_container_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[24h:1m])\n      )\n   ) * $watt_per_second_to_kWh \n) * $coal",
               "hide": false,
@@ -177,10 +171,7 @@ data:
               "refId": "A"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${datasource}"
-              },
+              "datasource": "prometheus",
               "editorMode": "code",
               "expr": "( sum(\n      increase(\n         (kepler_container_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[24h:1m])\n      )\n   ) * $watt_per_second_to_kWh \n) * $petroleum",
               "hide": false,
@@ -189,10 +180,7 @@ data:
               "refId": "B"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${datasource}"
-              },
+              "datasource": "prometheus",
               "editorMode": "code",
               "expr": "( sum(\n      increase(\n         (kepler_container_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[24h:1m])\n      )\n   ) * $watt_per_second_to_kWh \n) * $natural_gas",
               "hide": false,
@@ -220,10 +208,7 @@ data:
           "type": "row"
         },
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
+          "datasource": "prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {
@@ -382,10 +367,7 @@ data:
               "refId": "B"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${datasource}"
-              },
+              "datasource": "prometheus",
               "editorMode": "code",
               "expr": "sum by (pod_name, container_namespace) (irate(kepler_container_other_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[1m]))",
               "hide": false,
@@ -395,10 +377,7 @@ data:
               "refId": "C"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${datasource}"
-              },
+              "datasource": "prometheus",
               "editorMode": "code",
               "expr": "sum by (pod_name, container_namespace) (irate(kepler_container_gpu_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[1m]))",
               "hide": false,
@@ -411,10 +390,7 @@ data:
           "type": "timeseries"
         },
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
+          "datasource": "prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {
@@ -551,10 +527,7 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${datasource}"
-              },
+              "datasource": "prometheus",
               "editorMode": "code",
               "expr": "sum(irate(kepler_container_package_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[1m]))",
               "hide": false,
@@ -564,10 +537,7 @@ data:
               "refId": "A"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${datasource}"
-              },
+              "datasource": "prometheus",
               "editorMode": "code",
               "expr": "sum(irate(kepler_container_dram_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[1m]))",
               "hide": false,
@@ -577,10 +547,7 @@ data:
               "refId": "B"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${datasource}"
-              },
+              "datasource": "prometheus",
               "editorMode": "code",
               "expr": "sum(irate(kepler_container_other_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[1m]))",
               "hide": false,
@@ -589,10 +556,7 @@ data:
               "refId": "C"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${datasource}"
-              },
+              "datasource": "prometheus",
               "editorMode": "code",
               "expr": "sum(irate(kepler_container_gpu_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[1m]))",
               "hide": false,
@@ -605,10 +569,7 @@ data:
           "type": "timeseries"
         },
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
+          "datasource": "prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {
@@ -747,10 +708,7 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${datasource}"
-              },
+              "datasource": "prometheus",
               "editorMode": "code",
               "expr": "sum (\n  increase(\n   (kepler_container_package_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[24h:1m])\n  )\n) * $watt_per_second_to_kWh",
               "hide": false,
@@ -760,10 +718,7 @@ data:
               "refId": "A"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${datasource}"
-              },
+              "datasource": "prometheus",
               "editorMode": "code",
               "expr": "sum (\n  increase(\n   (kepler_container_dram_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[24h:1m])\n  )\n) * $watt_per_second_to_kWh",
               "hide": false,
@@ -773,10 +728,7 @@ data:
               "refId": "B"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${datasource}"
-              },
+              "datasource": "prometheus",
               "editorMode": "code",
               "expr": "sum (\n  increase(\n   (kepler_container_other_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[24h:1m])\n  )\n) * $watt_per_second_to_kWh",
               "hide": false,
@@ -785,10 +737,7 @@ data:
               "refId": "C"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${datasource}"
-              },
+              "datasource": "prometheus",
               "editorMode": "code",
               "expr": "sum (\n  increase(\n   (kepler_container_gpu_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[24h:1m])\n  )\n) * $watt_per_second_to_kWh",
               "hide": false,
@@ -801,10 +750,7 @@ data:
           "type": "timeseries"
         },
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
+          "datasource": "prometheus",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -849,10 +795,7 @@ data:
           "pluginVersion": "9.1.0",
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${datasource}"
-              },
+              "datasource": "prometheus",
               "editorMode": "code",
               "expr": "sum by (container_namespace) (\n  increase(\n      (kepler_container_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[24h:1m])\n  )\n) * $watt_per_second_to_kWh ",
               "interval": "",
@@ -874,8 +817,8 @@ data:
           {
             "current": {
               "selected": true,
-              "text": "Prometheus-Kepler",
-              "value": "Prometheus-Kepler"
+              "text": "Prometheus",
+              "value": "prometheus"
             },
             "hide": 0,
             "includeAll": false,
@@ -896,10 +839,7 @@ data:
               "text": "All",
               "value": "$__all"
             },
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${datasource}"
-            },
+            "datasource": "prometheus",
             "definition": "label_values(kepler_container_package_joules_total, container_namespace)",
             "description": "Namespace for pods to choose",
             "hide": 0,
@@ -928,10 +868,7 @@ data:
               "text": "All",
               "value": "$__all"
             },
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${datasource}"
-            },
+            "datasource": "prometheus",
             "definition": "label_values(kepler_container_package_joules_total{container_namespace=~\"$namespace\"}, pod_name)",
             "hide": 0,
             "includeAll": true,
