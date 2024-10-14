@@ -51,8 +51,10 @@ func (a *actuator) Reconcile(ctx context.Context, logger logr.Logger, ex *extens
 	logger.Info("Reconciling")
 
 	keplerConfig := &api.Configuration{}
-	if _, _, err := a.decoder.Decode(ex.Spec.ProviderConfig.Raw, nil, keplerConfig); err != nil {
-		return fmt.Errorf("failed to decode provider config: %w", err)
+	if ex.Spec.ProviderConfig != nil {
+		if _, _, err := a.decoder.Decode(ex.Spec.ProviderConfig.Raw, nil, keplerConfig); err != nil {
+			return fmt.Errorf("failed to decode provider config: %w", err)
+		}
 	}
 
 	// Create the resource for the kepler installation
