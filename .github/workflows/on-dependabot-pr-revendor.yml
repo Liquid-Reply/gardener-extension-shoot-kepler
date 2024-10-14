@@ -1,0 +1,27 @@
+name: Dependabot revendor
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  build:
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    steps:
+      - name: Fetch Dependabot metadata
+        id: dependabot-metadata
+        uses: dependabot/fetch-metadata@v2
+      - uses: actions/checkout@v4
+        if: ${{ steps.dependabot-metadata.outputs.package-ecosystem == 'go_modules' }}
+        with:
+          ssh-key: ${{ secrets.SSH_KEY }}
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Run revendor
+        if: ${{ steps.dependabot-metadata.outputs.package-ecosystem == 'go_modules' }}
+        run: make revendor
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Run make revendor
