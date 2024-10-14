@@ -5,7 +5,7 @@ metadata:
   name: gardener-extension-{{ .Values.serviceName }}
   labels:
     app.kubernetes.io/name: gardener-extension-{{ .Values.serviceName }}
-    app.kubernetes.io/instance: { { .Release.Name } }
+    app.kubernetes.io/instance: {{ .Release.Name }}
 value: 1000000000
 globalDefault: false
 description: "Priority class for the Gardener extension: shoot-kepler."
