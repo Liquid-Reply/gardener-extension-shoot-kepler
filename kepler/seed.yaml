@@ -349,7 +349,7 @@ data:
             {
               "datasource": "prometheus",
               "editorMode": "code",
-              "expr": "sum by (pod_name, container_namespace) (irate(kepler_container_package_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[1m]))",
+              "expr": "sum by (pod_name, container_namespace) (irate(kepler_container_package_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[24h:1m]))",
               "hide": false,
               "interval": "",
               "legendFormat": "{{pod_name}} / {{container_namespace}} / PKG",
@@ -359,7 +359,7 @@ data:
             {
               "datasource": "prometheus",
               "editorMode": "code",
-              "expr": "sum by (pod_name, container_namespace) (irate(kepler_container_dram_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[1m]))",
+              "expr": "sum by (pod_name, container_namespace) (irate(kepler_container_dram_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[24h:1m]))",
               "hide": false,
               "interval": "",
               "legendFormat": "{{pod_name}} / {{container_namespace}} / DRAM",
@@ -369,7 +369,7 @@ data:
             {
               "datasource": "prometheus",
               "editorMode": "code",
-              "expr": "sum by (pod_name, container_namespace) (irate(kepler_container_other_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[1m]))",
+              "expr": "sum by (pod_name, container_namespace) (irate(kepler_container_other_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[24h:1m]))",
               "hide": false,
               "interval": "",
               "legendFormat": "{{pod_name}} / {{container_namespace}} / OTHER",
@@ -379,7 +379,7 @@ data:
             {
               "datasource": "prometheus",
               "editorMode": "code",
-              "expr": "sum by (pod_name, container_namespace) (irate(kepler_container_gpu_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[1m]))",
+              "expr": "sum by (pod_name, container_namespace) (irate(kepler_container_gpu_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[24h:1m]))",
               "hide": false,
               "legendFormat": "{{pod_name}} / {{container_namespace}} / GPU",
               "range": true,
@@ -529,7 +529,7 @@ data:
             {
               "datasource": "prometheus",
               "editorMode": "code",
-              "expr": "sum(irate(kepler_container_package_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[1m]))",
+              "expr": "sum(irate(kepler_container_package_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[24h:1m]))",
               "hide": false,
               "interval": "",
               "legendFormat": "PKG",
@@ -539,7 +539,7 @@ data:
             {
               "datasource": "prometheus",
               "editorMode": "code",
-              "expr": "sum(irate(kepler_container_dram_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[1m]))",
+              "expr": "sum(irate(kepler_container_dram_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[24h:1m]))",
               "hide": false,
               "interval": "",
               "legendFormat": "DRAM",
@@ -549,7 +549,7 @@ data:
             {
               "datasource": "prometheus",
               "editorMode": "code",
-              "expr": "sum(irate(kepler_container_other_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[1m]))",
+              "expr": "sum(irate(kepler_container_other_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[24h:1m]))",
               "hide": false,
               "legendFormat": "OTHER",
               "range": true,
@@ -558,7 +558,7 @@ data:
             {
               "datasource": "prometheus",
               "editorMode": "code",
-              "expr": "sum(irate(kepler_container_gpu_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[1m]))",
+              "expr": "sum(irate(kepler_container_gpu_joules_total{container_namespace=~\"$namespace\", pod_name=~\"$pod\"}[24h:1m]))",
               "hide": false,
               "legendFormat": " GPU",
               "range": true,
