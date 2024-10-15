@@ -14,6 +14,22 @@ This controller implements Gardener's extension contract for the `shoot-kepler` 
 
 Please find more information regarding the extensibility concepts and a detailed proposal [here](https://github.com/gardener/gardener/blob/master/docs/proposals/01-extensibility.md).
 
+## Installation
+
+Download the controller-registration.yaml from the GitHub releases. Install this manifest in the Garden cluster to enable the controller.
+
+To configure the extension for a `Shoot`, add this to the manifest:
+
+```yaml
+  extensions:
+    - ...
+    - type: shoot-kepler
+```
+
+Currently there is no configuration options available.
+
+You can access the Kepler dashboard from your Shoot's Plutono.
+
 ## Learn more!
 
 Please find further resources about out project here:
