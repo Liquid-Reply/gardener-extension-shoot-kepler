@@ -10,7 +10,7 @@ COPY . .
 RUN make install
 
 ############# gardener-extension-shoot-kepler
-FROM alpine:3.20.3 AS gardener-extension-shoot-kepler
+FROM alpine:3.21.0 AS gardener-extension-shoot-kepler
 
 COPY charts /charts
 COPY --from=builder /go/bin/gardener-extension-shoot-kepler /gardener-extension-shoot-kepler
